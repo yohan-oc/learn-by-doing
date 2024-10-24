@@ -1,4 +1,14 @@
-﻿namespace Opencast.LearnByDoing.Puzzle01
+﻿/***
+You've been given a csv file containing lots of serial numbers and client IDs for futuristic IoT devices.
+Unfortunately there's a duplicate client ID in the csv file, which will cause issues when the entries are inserted into a database.
+ 
+Using your prefered programming language, find the two serial numbers associated with the duplicated client ID.
+Your solution should focus on efficiency.
+ 
+Good luck!
+***/
+
+namespace Opencast.LearnByDoing.Puzzle01
 {
     public static class Puzzle01
 	{
