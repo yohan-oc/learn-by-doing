@@ -4,7 +4,7 @@ using Opencast.LearnByDoing.Puzzle01;
 // See https://aka.ms/new-console-template for more information
 Console.WriteLine("Welcome to Learn by Doing!");
 
-Stopwatch stopwatch = new Stopwatch();
+Stopwatch stopwatch = new();
 stopwatch.Start();
 
 Puzzle01.Run();

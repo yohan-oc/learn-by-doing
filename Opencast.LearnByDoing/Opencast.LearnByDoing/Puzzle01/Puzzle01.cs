@@ -7,30 +7,29 @@ namespace Opencast.LearnByDoing.Puzzle01
 		{
             string[] lines = File.ReadAllLines("Puzzle01/puzzle_bonus.csv");
 
-            var clientIdSetCache = new HashSet<string>(StringComparer.Ordinal);
+            var clientIdSetCache = new Dictionary<string, string>(StringComparer.Ordinal);
 
-            var duplicates = new List<string>();
+            List<string> duplicateSerialNumbers = new();
 
 			for(int i=0; i < lines.Length; i++)
 			{
                 var splitLine = lines[i].Split(",");
-
                 string serialNo = splitLine[0];
-				string clientId = splitLine[1];
+                string clientId = splitLine[1];
 
-				if (clientIdSetCache.Contains(clientId))
+				if (clientIdSetCache.ContainsKey(clientId))
 				{
-					//Console.WriteLine("Duplicate row: " + serialNo);
-					duplicates.Add(lines[i]);
-					break;
+                    duplicateSerialNumbers.Add(clientIdSetCache[clientId]);
+                    duplicateSerialNumbers.Add(serialNo);
+                    break;
 				}
 				else
 				{
-                    clientIdSetCache.Add(clientId);
+                    clientIdSetCache.Add(clientId, serialNo);
 				}
             }
 
-			Console.WriteLine("Size of the dictionary: " + string.Join(", ", duplicates));
+			Console.WriteLine("Duplicate serial numbers: " + string.Join(", ", duplicateSerialNumbers));
         }
 	}
 }
